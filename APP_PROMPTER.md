@@ -97,11 +97,6 @@ må bla mer.
 ```
 
 ```text
-Lag appen med faner nederst, slik vanlige apper har: [I dag], [Uka], [Økter] og [Meg].
-Flytt det som finnes inn i riktig fane.
-```
-
-```text
 Gi meg tre forslag til fargevalg som passer en rolig helseapp. Vis dem som små prøver ved
 siden av hverandre, så velger jeg.
 ```
@@ -275,6 +270,113 @@ med aktivitet per uke, hvilepuls, og det jeg selv har ført. Én side, nøkternt
 ```text
 Lag en oppsummering av året så langt: antall økter, timer i bevegelse, beste uke og
 lengste rekke. Noe jeg blir glad av å se på.
+```
+
+## Når appen vokser
+
+Appen trenger ikke forbli én skjerm. Den kan bli en ordentlig app med faner, egne sider og
+innstillinger, og du bygger den dit trinn for trinn. En vanlig vei:
+
+1. **Én skjerm** med det viktigste. Der starter du.
+2. **Forside med kort**, der hvert kort åpner en egen side.
+3. **Faner** nederst, når det er blitt for mye å bla i.
+4. **Innstillinger**, så du selv kan endre mål og utseende uten å spørre Claude.
+5. **Dybde**: velg tidsrom, sammenlign perioder, trykk deg inn i en økt.
+6. **Samspill**: plan, Garmin-tall, det du fører selv og veilederen i samme app.
+
+Du trenger ikke gå hele veien. Stopp der appen gjør jobben.
+
+**Forside med kort.**
+
+```text
+Gjør forsiden om til store kort, ett for hver ting: [ukemålet], [dagens plan], [søvn] og
+[blodtrykk]. Hvert kort viser det viktigste tallet. Når jeg trykker på et kort, åpnes en
+egen side med detaljene og en tilbakeknapp.
+```
+
+**Faner.**
+
+```text
+Appen har blitt lang å bla i. Del den i faner nederst på skjermen, slik vanlige apper har:
+[I dag], [Uka], [Økter], [Kosthold] og [Meg]. Flytt det som finnes inn i riktig fane, og la
+appen huske hvilken fane jeg sist var på. Hent bare tallene til den fanen jeg åpner, så
+appen ikke blir treg.
+```
+
+**Innstillinger.**
+
+```text
+Lag en fane «Innstillinger» der jeg selv kan endre ukemålet, pulsgrensen, hvilke kort som
+vises på forsiden og i hvilken rekkefølge, farger og tekststørrelse. Valgene mine skal
+huskes, også på en annen enhet.
+```
+
+**Velg tidsrom.**
+
+```text
+Legg til et valg øverst i [Uka] for dag, uke, måned og år, slik Garmin-appen har. Tallene
+og kurvene skal følge valget.
+```
+
+**Sammenlign.**
+
+```text
+La meg sammenligne to perioder side om side, for eksempel denne måneden mot forrige:
+økter, intensitetsminutter, hvilepuls og søvn. Vis tydelig hva som har gått opp og ned.
+```
+
+**Finn fram i øktene.**
+
+```text
+I [Økter]: la meg velge type økt og vise bare økter over [30] minutter. Vis hvor mange
+som passer, og summen av tiden.
+```
+
+**Hva er nytt siden sist.**
+
+```text
+Når jeg åpner appen: vis øverst hva som har skjedd siden sist jeg var inne, for eksempel
+nye økter, mål som er nådd og nye rekorder. Ett trykk skal fjerne meldingen.
+```
+
+**En fane som foreslår neste skritt.**
+
+```text
+Legg til en fane «Ideer» med fem forslag til hva appen kunne gjort mer, ut fra det som
+finnes i Garmin og det jeg bruker i appen i dag. Skriv hvert forslag som en setning jeg kan
+sende deg for å få det laget.
+```
+
+**Ta kopi av det du har ført.**
+
+```text
+Legg til en knapp som laster ned alt jeg selv har ført i appen som en fil: blodtrykk, plan
+og notater. Jeg vil ha en kopi.
+```
+
+**Rydd under panseret.** Bruk denne når appen har fått mange deler og endringer begynner å
+gå tregt eller gi feil.
+
+```text
+Appen har vokst mye. Gå gjennom den og rydd, uten å endre noe av det jeg ser eller noe
+som er lagret. Si etterpå hva du ryddet, og hvordan du har sjekket at alt virker som før.
+```
+
+**Få oversikt.**
+
+```text
+Lag en kort oversikt over appen slik den er nå: hver fane, hva den viser, hvilke tall som
+kommer fra Garmin, og hva jeg fører selv.
+```
+
+**Når samtalen blir lang.** Etter mange endringer kan samtalen bli så lang at Claude
+begynner å miste tråden. Det er ikke prøvd hvordan man best flytter appen til en ny samtale,
+så be Claude om råd først:
+
+```text
+Denne samtalen er blitt lang. Hvordan fortsetter vi best på samme app i en ny samtale,
+uten at det jeg har lagret forsvinner? Skriv det jeg må lime inn der for at du skal kjenne
+appen og reglene våre.
 ```
 
 ## Gjør den til din egen

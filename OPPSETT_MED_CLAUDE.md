@@ -171,6 +171,9 @@ rett det til hun kjenner seg igjen. Instruksen skal inneholde:
   dosering og nye symptomer går til legen.
 - **Søvn omtales rolig.** Søvntallene fra klokka er upresise, og de skal ikke gjøres til et
   mål eller en karakter.
+- **Tips om appen.** Veilederen kan av og til foreslå én forbedring av appen når det passer
+  med det hun spør om, med setningen hun kan sende for å få den laget. Spør henne om hun vil
+  ha slike tips, og hvor ofte.
 
 En språkmodell gir lett etter for den som maser. Det er grunnen til at tonen og unntaket
 står skrevet i instruksen og ikke overlates til skjønn.
@@ -194,6 +197,9 @@ være med, uansett utseende:
   henne velge. Ikke bygg alt.
 - Når grunnappen virker, bruk promptene under «Gjør den til din egen» til å forme den etter
   tallene, hverdagen og målet hennes.
+- Fortell henne tidlig at appen kan vokse til en ordentlig app med faner, egne sider og
+  innstillinger, og vis henne trappa under «Når appen vokser». Start likevel enkelt.
+  Foreslå neste trinn når appen har fått tre–fire ting og begynner å bli lang å bla i.
 - Mye i idébanken er ikke prøvd, blant annet lagring av det hun fører selv, bilder av
   måltider, og at appen spør deg om en beskjed. Prøv det, og si ærlig fra hvis det ikke går.
 
@@ -221,7 +227,8 @@ om dagens avtalte økt ble gjort, og en ukentlig oppsummering med mål for neste
 Avslutt med en kort side til henne, i hennes eget språk:
 
 - hvor hun finner veilederen, appen og de planlagte oppgavene
-- hvordan hun ber om endringer
+- hvordan hun ber om endringer, og hvor hun finner ideer til neste skritt
+  (`APP_PROMPTER.md`, særlig «Når appen vokser» og «Gjør den til din egen»)
 - hva som skjer én gang i året (ny nøkkel fra Garmin, se `UTRULLING.md`)
 - hvem hun spør når noe ikke virker
 
