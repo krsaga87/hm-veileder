@@ -72,5 +72,10 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   koblingen: `garmin_search_activities` svarer med en merknad først og dataene etterpå, og
   appen leste bare første del. Feilen sto på skjermen, og et skjermbilde til Claude ga en
   retting i én runde. Grunnreglene ber nå Claude lese alle delene av svaret.
+- **Minutter over en pulsgrense: virker.** Appen viste tid med puls over 160 per økt og for
+  uka: 15 min 5 s, 0 og 15 min 39 s. Den leser tiden i pulssonene som klokka lagrer i hver
+  økt, og tallet er nøyaktig når en sonegrense på klokka ligger på den valgte pulsen. Ellers
+  regner den fra pulsmålingene og merker tallet «ca.». Kontrollregnet fra sekundmålingene i
+  FIT-filene: 14 min 55 s, 0 og 15 min 24 s, altså innenfor et kvarter minutt.
 - **Gjenstår:** punkt 9, og punkt 5–8 på en Android-telefon. Appbygging på Pro-abonnement
   er ikke prøvd.

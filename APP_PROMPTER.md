@@ -7,8 +7,8 @@ det som står i [klammer], stryk det du ikke bryr deg om, og skriv med dine egne
 Koblingen til Garmin må være satt opp først (`UTRULLING.md`).
 
 **Hva som er prøvd:** grunnreglene, de to første promptene under «Kom i gang»,
-registrering av blodtrykk og ukeplanen er prøvd 27.11.2026 og virket. Resten er eksempler
-på hva som bør være mulig, men er ikke prøvd.
+registrering av blodtrykk, ukeplanen og tid over en pulsgrense er prøvd 27.11.2026 og
+virket. Resten er eksempler på hva som bør være mulig, men er ikke prøvd.
 Derfor står det i grunnreglene at Claude skal si fra når noe ikke går, i stedet for å late
 som.
 
@@ -111,6 +111,8 @@ snittpuls. Når jeg trykker på en økt, vis mer om den.
 ```
 
 **Tid over en pulsgrense.** Nyttig hvis legen har sagt noe om hvor høyt pulsen bør opp.
+Prøvd. Tallet blir nøyaktig hvis en av pulssonene på klokka starter på akkurat den pulsen;
+sonene kan endres i Garmin-appen. Ellers blir det et anslag, og appen merker det «ca.».
 
 ```text
 For hver økt: vis hvor mange minutter pulsen lå over [___] slag i minuttet. Vis også summen
