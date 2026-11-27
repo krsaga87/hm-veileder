@@ -52,5 +52,12 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
 - **Punkt 3: virker.** Et prosjekt med instruksen «Du er min helseveileder. Hent alltid
   tallene fra Garmin-koblingen før du svarer.» brukte koblingen på spørsmålet «Hvordan har
   uka vært?» og svarte med trening, restitusjon og søvn fra Garmin.
-- **Gjenstår:** punkt 6 og 9, og punkt 5–8 på en Android-telefon. Appbygging på
-  Pro-abonnement er ikke prøvd.
+- **Punkt 6: kjøringen virker.** En planlagt oppgave (Scheduled → New task → Set up
+  manually, Permissions «Auto», daglig) kjørte på klokkeslettet og brukte tre
+  Garmin-verktøy uten å vente på godkjenning. Meldingen stemte: økta, 87 intensitetsminutter
+  for dagen og 263 for uka. Oppgaven har ikke noe eget varselverktøy; varsel velges under
+  Advanced settings → Notifications, med push, e-post eller Slack. Oppgaven fikk tilgang til
+  alle kontoens koblinger, ikke bare Garmin.
+- **Ikke avklart for punkt 6:** om push og e-post kom fram, og om man kan svare i kjøringen.
+- **Gjenstår:** punkt 9, og punkt 5–8 på en Android-telefon. Appbygging på Pro-abonnement
+  er ikke prøvd.
