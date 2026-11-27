@@ -48,5 +48,9 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   klokkeslettet for hentingen.
 - **Punkt 7 og 8 på iPhone: virker.** Den oppdaterte appen åpnet seg i Claude-appen på
   iPhone og hentet de samme tallene gjennom koblingen.
-- **Gjenstår:** punkt 3, 6 og 9, og punkt 5–8 på en Android-telefon. Appbygging på
+  Godkjenningen fra PC-en fulgte med; det kom ikke noe nytt spørsmål på telefonen.
+- **Punkt 3: virker.** Et prosjekt med instruksen «Du er min helseveileder. Hent alltid
+  tallene fra Garmin-koblingen før du svarer.» brukte koblingen på spørsmålet «Hvordan har
+  uka vært?» og svarte med trening, restitusjon og søvn fra Garmin.
+- **Gjenstår:** punkt 6 og 9, og punkt 5–8 på en Android-telefon. Appbygging på
   Pro-abonnement er ikke prøvd.
