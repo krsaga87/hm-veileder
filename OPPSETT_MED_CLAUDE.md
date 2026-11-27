@@ -1,7 +1,9 @@
 # Oppsett av en personlig helseveileder
 
 *Dette dokumentet er skrevet til Claude. Brukeren legger det ved i en ny samtale sammen med
-`UTRULLING.md`, og skriver «Hjelp meg å sette opp dette». Alt under er til deg, Claude.*
+`UTRULLING.md` og `APP_PROMPTER.md`, og skriver «Hjelp meg å sette opp dette». Alt under er
+til deg, Claude. De tre filene ligger på `https://github.com/krsaga87/hm-veileder`. Mangler
+en av dem i samtalen, be henne legge den ved.*
 
 ## Hva du skal hjelpe til med
 
@@ -67,8 +69,10 @@ hennes egen Garmin-innlogging. Cloudflare-kontoen kan stå på henne eller på h
 
 To ting å si fra om før dere starter:
 
-- Trinn 10 krever at hun legger inn et betalingskort hos Cloudflare, selv om planen er
-  gratis.
+- Trinn 10 har to veier. 10A (engangskode på e-post) er sterkest, men krever flere skjermer
+  hos Cloudflare og et betalingskort, selv om planen er gratis. 10B (passord) er to
+  kommandoer. Forklar forskjellen og la henne velge. Velger hun 10B, sørg for at passordet
+  blir tatt vare på et trygt sted, og at det ikke limes inn i samtalen.
 - Trinn 9 gir ofte en feilside de første minuttene. Det går over av seg selv.
 
 ### A3. Sjekk at koblingen virker
@@ -182,9 +186,21 @@ være med, uansett utseende:
 - Går hentingen ikke, står årsaken på skjermen.
 - Den er laget for mobilskjerm, og teksten er på norsk.
 
-La henne se den, og endre til hun er fornøyd. Vis henne at hun selv kan be om endringer
-senere, i samme samtale: «legg til …», «bytt farge til …». Første gang appen åpnes, spør
-Claude om den får bruke Garmin-koblingen. Det skal hun si ja til.
+`APP_PROMPTER.md` er idébanken. Slik bruker du den:
+
+- Legg grunnreglene derfra inn i samtalen der appen lages, eller i prosjektets instruks.
+- Start med den første appen, som er liten og prøvd. Bygg ut derfra, én ting om gangen.
+- Vis henne to–tre eksempler fra idébanken som passer med det hun fortalte i del B, og la
+  henne velge. Ikke bygg alt.
+- Når grunnappen virker, bruk promptene under «Gjør den til din egen» til å forme den etter
+  tallene, hverdagen og målet hennes.
+- Mye i idébanken er ikke prøvd, blant annet lagring av det hun fører selv, bilder av
+  måltider, og at appen spør deg om en beskjed. Prøv det, og si ærlig fra hvis det ikke går.
+
+La henne se appen, og endre til hun er fornøyd. Vis henne at hun selv kan be om endringer
+senere, i samme samtale: «legg til …», «bytt farge til …». Målet er at hun kan fortsette
+uten deg og uten hjelperen. Første gang appen åpnes, spør Claude om den får bruke
+Garmin-koblingen. Det skal hun si ja til.
 
 ### D3. Oppfølgingen
 
