@@ -242,10 +242,12 @@ siden på nytt. Du kan gjøre trinn 10 mens du venter.
 Programmet har en side der du godkjenner hvem som får lese tallene. Nå sørger du for at bare
 du kommer inn på den siden. Til dette er gjort, er siden stengt for alle.
 
-1. Gå til `https://dash.cloudflare.com` og velg **Zero Trust** i menyen. Første gang må du
+1. Gå til `https://dash.cloudflare.com` og trykk **Zero Trust** i menyen til venstre, under
+   «Protect & connect». Da åpner det seg en undermeny. Første gang må du
    velge et teamnavn (hva som helst) og gratisplanen. Cloudflare kan be om et betalingskort
    selv om planen koster 0 kr.
-2. Velg **Access → Applications → Add an application → Self-hosted**.
+2. Trykk **Access controls** i undermenyen, så **Applications**, så
+   **Add an application**, og velg **Self-hosted**.
 3. Fyll ut:
    - **Application name:** `hm-veileder`
    - **Domain:** adressen fra trinn 9 uten `https://`, altså
