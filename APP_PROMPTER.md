@@ -6,9 +6,9 @@ det som står i [klammer], stryk det du ikke bryr deg om, og skriv med dine egne
 
 Koblingen til Garmin må være satt opp først (`UTRULLING.md`).
 
-**Hva som er prøvd:** grunnreglene, de to første promptene under «Kom i gang» og
-registrering av blodtrykk er prøvd 27.11.2026 og virket, også på telefon. Resten er
-eksempler på hva som bør være mulig, men er ikke prøvd.
+**Hva som er prøvd:** grunnreglene, de to første promptene under «Kom i gang»,
+registrering av blodtrykk og ukeplanen er prøvd 27.11.2026 og virket. Resten er eksempler
+på hva som bør være mulig, men er ikke prøvd.
 Derfor står det i grunnreglene at Claude skal si fra når noe ikke går, i stedet for å late
 som.
 
@@ -44,6 +44,9 @@ gjelder for alt du lager i denne samtalen:
 - Appen skal brukes på telefon. Stor nok tekst, og ingenting som må trykkes med presisjon.
 - All tekst på norsk.
 - Mangler et tall, vis at det mangler. Ikke vis null, og ikke gjett.
+- Svar fra Garmin-koblingen kan komme i flere tekstdeler, først en merknad og så dataene,
+  og kan være en ren melding når data mangler. Les alle delene. Hent et ekte svar og se på
+  formen før du skriver koden som leser det.
 - Når jeg ber om en endring, behold alt annet slik det var.
 - Er det noe jeg ber om som ikke lar seg gjøre i en slik app, si det rett ut og foreslå det
   nærmeste som går. Ikke lag noe som bare ser ut som det virker.
@@ -227,7 +230,9 @@ Finnes det ikke, si det, og ikke lag en tom visning.
 
 Dette er delen som holder deg til det du har bestemt.
 
-**Ukeplanen.**
+**Ukeplanen.** Prøvd. Haken settes når Garmin har en økt av samme type den dagen, med
+omtrent den planlagte lengden. Appen kan ikke se om en tur var «rask»; vil du ha det med,
+be om en grense for snittpuls.
 
 ```text
 Jeg vil ha en ukeplan i appen. La meg legge inn hva jeg skal gjøre hvilke dager, for

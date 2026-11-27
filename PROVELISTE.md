@@ -67,5 +67,10 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   koblingen før den lovet noe, og sa fra om begrensningene: appen kjører bare inne i
   Claude, gjør ingenting i bakgrunnen, og «sist hentet» er ikke det samme som at klokka
   har synket.
+- **Ukeplan med automatisk hake: virker, etter én retting.** Planen lagres i appen, og en
+  planlagt løpeøkt fikk hake fra Garmin-økta samme dag. Første forsøk leste ikke svaret fra
+  koblingen: `garmin_search_activities` svarer med en merknad først og dataene etterpå, og
+  appen leste bare første del. Feilen sto på skjermen, og et skjermbilde til Claude ga en
+  retting i én runde. Grunnreglene ber nå Claude lese alle delene av svaret.
 - **Gjenstår:** punkt 9, og punkt 5–8 på en Android-telefon. Appbygging på Pro-abonnement
   er ikke prøvd.
