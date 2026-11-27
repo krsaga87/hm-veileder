@@ -290,12 +290,16 @@ det du limer inn.** Det er meningen.
 Gjør dette i nettleseren på PC-en, ikke på telefonen.
 
 1. Gå til `https://claude.ai` og logg inn.
-2. Åpne **Customize → Connectors**, trykk **+ Add** og velg **Add custom connector**.
-3. Fyll ut:
-   - **Navn:** `Garmin`
-   - **Adresse:** adressen fra trinn 9 med `/mcp` til slutt, altså
+2. Trykk **Plugins** i menyen til venstre. Trykk så den svarte **Add**-knappen øverst til
+   høyre, og velg **Add custom connector**.
+3. Fyll ut de to feltene og trykk **Continue**:
+   - **Name:** `Garmin`
+   - **MCP server URL:** adressen fra trinn 9 med `/mcp` til slutt, altså
      `https://hm-veileder.navnet-du-valgte.workers.dev/mcp`
-   - **Authentication:** Sign in now
+
+   Neste side viser valgene **Sign in now** og **Use Claude's published identity**, begge
+   merket «Detected». Det betyr at Claude fant programmet ditt. La alt stå som det er, bla
+   ned og trykk knappen nederst.
 4. Nå åpnes en side fra Cloudflare som ber om e-postadressen din. Skriv den, hent
    engangskoden fra e-posten og skriv den inn.
 5. Du får et spørsmål om Claude skal få lese Garmin-tallene dine. Trykk **Allow**.
