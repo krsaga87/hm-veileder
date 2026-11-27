@@ -9,9 +9,9 @@ Sett av omtrent en time. Du kan ta pause mellom trinnene.
 Guiden er skrevet for en PC med Windows. På Mac er trinnene de samme, men programmet du
 skriver kommandoer i heter Terminal.
 
-**Hvor godt guiden er prøvd:** trinn 2–5 og 7–10 er gått gjennom på en Windows-PC
-27.11.2026, og beskrivelsen av Cloudflare følger skjermene slik de så ut da. Trinn 6
-(Garmin), 11 og 12 (Claude) er skrevet etter dokumentasjonen. Menyene kan ha endret seg.
+**Hvor godt guiden er prøvd:** trinnene hos Cloudflare (7–10) følger skjermene slik de så
+ut ved en gjennomgang 27.11.2026. Trinn 6 (Garmin), 11 og 12 (Claude) er skrevet etter
+dokumentasjonen. Menyene kan ha endret seg siden.
 
 ## Hva du setter opp
 
