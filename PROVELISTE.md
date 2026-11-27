@@ -60,5 +60,12 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   alle kontoens koblinger, ikke bare Garmin.
 - **Punkt 6, varsel og svar: virker på iPhone.** Push-varselet kom fram, og et vanlig svar
   skrevet under kjøringen ble besvart som i en samtale. E-postvarsel er ikke prøvd.
+- **Appen kan lagre egne registreringer.** En blodtrykksapp laget i chat lagret målinger i
+  appens egen database. En måling ført på iPhone viste seg med en gang på PC. Bare eieren
+  kan lese og skrive målingene.
+- **Grunnreglene i `APP_PROMPTER.md` holdt.** Claude sjekket selv at appen kunne bruke
+  koblingen før den lovet noe, og sa fra om begrensningene: appen kjører bare inne i
+  Claude, gjør ingenting i bakgrunnen, og «sist hentet» er ikke det samme som at klokka
+  har synket.
 - **Gjenstår:** punkt 9, og punkt 5–8 på en Android-telefon. Appbygging på Pro-abonnement
   er ikke prøvd.

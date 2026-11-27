@@ -6,8 +6,9 @@ det som står i [klammer], stryk det du ikke bryr deg om, og skriv med dine egne
 
 Koblingen til Garmin må være satt opp først (`UTRULLING.md`).
 
-**Hva som er prøvd:** de to første promptene under «Kom i gang» er prøvd 27.11.2026 og
-virket, også på telefon. Resten er eksempler på hva som bør være mulig, men er ikke prøvd.
+**Hva som er prøvd:** grunnreglene, de to første promptene under «Kom i gang» og
+registrering av blodtrykk er prøvd 27.11.2026 og virket, også på telefon. Resten er
+eksempler på hva som bør være mulig, men er ikke prøvd.
 Derfor står det i grunnreglene at Claude skal si fra når noe ikke går, i stedet for å late
 som.
 
@@ -23,6 +24,9 @@ som.
 - **Første gang appen åpnes** spør Claude om den får bruke Garmin. Svar ja. Det samme kan
   skje når appen får en ny type tall.
 - **Du finner appen igjen** under Artifacts i menyen, både på PC og telefon.
+- **Tallene er så ferske som klokka.** Appen henter fra Garmin, ikke fra klokka. Har ikke
+  klokka synket med telefonen siden i morges, viser appen morgentallene. Åpne Garmin-appen
+  for å synke, og hent på nytt.
 
 ## Grunnregler
 
@@ -158,8 +162,9 @@ farger.
 
 ## Bygg ut: ting du fører selv
 
-Garmin vet ikke alt. Appen kan også ta imot det du skriver inn. Det er ikke prøvd om appen
-kan huske det du fører fra gang til gang, så be Claude si fra.
+Garmin vet ikke alt. Appen kan også ta imot det du skriver inn, og huske det. Det er prøvd:
+en måling ført på telefonen lå der med en gang på PC-en. Det du fører ligger i appen, ikke
+i Garmin, og bare du kan se det.
 
 **Vekt, blodtrykk eller midjemål.**
 
