@@ -151,7 +151,8 @@ Nøkkelen fra Garmin vises bare én gang, så du lager stedet den skal ligge fø
 copy .env.example .env
 ```
 
-Du skal se `1 fil(er) kopiert` eller `1 file(s) copied`. Åpne så fila i Notisblokk:
+Du skal se `1 fil(er) kopiert` eller `1 file(s) copied`. Kommer det ingen melding, er du i
+PowerShell, og da har det også gått bra. Åpne så fila i Notisblokk:
 
 ```
 notepad .env
