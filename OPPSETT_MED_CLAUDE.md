@@ -200,8 +200,12 @@ være med, uansett utseende:
 - Fortell henne tidlig at appen kan vokse til en ordentlig app med faner, egne sider og
   innstillinger, og vis henne trappa under «Når appen vokser». Start likevel enkelt.
   Foreslå neste trinn når appen har fått tre–fire ting og begynner å bli lang å bla i.
-- Mye i idébanken er ikke prøvd, blant annet lagring av det hun fører selv, bilder av
-  måltider, og at appen spør deg om en beskjed. Prøv det, og si ærlig fra hvis det ikke går.
+- En knapp i appen som spør Claude, svarer uten å kjenne veilederens instruks. Den vet
+  bare det appen sender med, og i prøven ga den forsiktigere råd enn veilederen skal gi.
+  Lag derfor knappen som ren status, eller send veilederens regler med i hvert spørsmål.
+  Hun skal ikke ende med to veiledere som sier forskjellige ting.
+- Noe i idébanken er ikke prøvd, blant annet bilder av måltider. Prøv det, og si ærlig fra
+  hvis det ikke går.
 
 La henne se appen, og endre til hun er fornøyd. Vis henne at hun selv kan be om endringer
 senere, i samme samtale: «legg til …», «bytt farge til …». Målet er at hun kan fortsette
@@ -247,6 +251,12 @@ Prøvd 27.11.2026 på Kristians konto (Max-abonnement, PC og iPhone):
   oppgave. Godkjenningen som gis på PC, følger med til telefonen.
 - En app laget i chat tålte å bli endret og fikk et nytt Garmin-verktøy uten å slutte å
   virke.
+- En app kan lagre det brukeren fører selv, på tvers av enheter, og bare eieren ser det.
+- En app kan holde en ukeplan og sette hake når Garmin har en passende økt den dagen.
+- En app kan vise tid over en pulsgrense per økt. Tallet er nøyaktig når en pulssone på
+  klokka starter på den pulsen.
+- `garmin_search_activities` svarer i to tekstdeler, en merknad og så dataene. En app som
+  bare leser første del, får ingen økter.
 - Push-varsel fra en planlagt oppgave kom fram på iPhone.
 
 Ikke prøvd:

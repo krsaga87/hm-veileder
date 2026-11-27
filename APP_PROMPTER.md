@@ -7,8 +7,9 @@ det som står i [klammer], stryk det du ikke bryr deg om, og skriv med dine egne
 Koblingen til Garmin må være satt opp først (`UTRULLING.md`).
 
 **Hva som er prøvd:** grunnreglene, de to første promptene under «Kom i gang»,
-registrering av blodtrykk, ukeplanen og tid over en pulsgrense er prøvd 27.11.2026 og
-virket. Resten er eksempler på hva som bør være mulig, men er ikke prøvd.
+registrering av blodtrykk, ukeplanen, tid over en pulsgrense og en knapp som spør Claude
+er prøvd 27.11.2026 og virket. Resten er eksempler på hva som bør være mulig, men er ikke
+prøvd.
 Derfor står det i grunnreglene at Claude skal si fra når noe ikke går, i stedet for å late
 som.
 
@@ -254,13 +255,35 @@ dag. Vis den som et valg når dagen kommer, så alternativet til full økt er en
 ikke ingenting.
 ```
 
-**En beskjed fra veilederen i appen.**
+**En knapp som spør Claude.** Prøvd: appen kan spørre Claude og vise svaret. Men den
+Claude som svarer i appen, er ikke veilederen din. Den husker ingenting, kjenner ikke
+prosjektet ditt, og vet bare det appen sender med. I prøven ga den forsiktige hvileråd som
+veilederen ikke ville gitt. Velg derfor en av disse to.
+
+*Bare status.* Den trygge varianten. Knappen sier hva tallene viser, og rådene får du av
+veilederen i prosjektet.
+
+```text
+Legg til en knapp «Hvordan ligger jeg an?». Når jeg trykker, skal appen spørre deg og vise
+et kort svar: hva jeg har gjort denne uka mot planen, og hva som gjenstår. Bare det tallene
+viser. Ingen råd om hvile, trening eller helse; det tar jeg med veilederen min.
+```
+
+*Med veilederens regler.* Bruk denne hvis du vil ha råd i appen. Da må reglene til
+veilederen følge med, ellers får du to veiledere som sier forskjellige ting.
 
 ```text
 Legg til en knapp «Hva sier veilederen?». Når jeg trykker, skal appen spørre deg og vise et
-kort svar ut fra dagens tall og ukeplanen: tre setninger, direkte, uten utenomsnakk. Si fra
-hvis appen ikke kan spørre deg på den måten.
+kort svar ut fra dagens tall og ukeplanen. Svaret skal følge de samme reglene som
+veilederen min. Her er de, og de skal sendes med hver gang:
+
+[lim inn reglene fra instruksen til veilederen: målet, legens råd, tonen, og symptomene
+som betyr stopp]
+
+Vis reglene i appen under innstillinger, så jeg kan se og endre dem der.
 ```
+
+Endrer du instruksen til veilederen senere, må du endre reglene i appen også.
 
 ## Bygg ut: til legen og til deg selv
 

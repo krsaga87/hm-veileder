@@ -77,5 +77,11 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   økt, og tallet er nøyaktig når en sonegrense på klokka ligger på den valgte pulsen. Ellers
   regner den fra pulsmålingene og merker tallet «ca.». Kontrollregnet fra sekundmålingene i
   FIT-filene: 14 min 55 s, 0 og 15 min 24 s, altså innenfor et kvarter minutt.
+- **Knapp som spør Claude fra appen: virker, med et forbehold.** Appen sendte ukas tall,
+  planen og siste blodtrykk, og viste et svar bygget på dem. Første trykk krever at brukeren
+  godkjenner at appen får spørre Claude. Forbeholdet: den som svarer i appen husker
+  ingenting og kjenner ikke prosjektinstruksen. Svaret i prøven var lengre enn bedt om og
+  rådet til hvile, altså forsiktigere enn veilederen skal være. Rådgivning i appen krever
+  derfor at veilederens regler sendes med, ellers bør knappen bare gi status.
 - **Gjenstår:** punkt 9, og punkt 5–8 på en Android-telefon. Appbygging på Pro-abonnement
   er ikke prøvd.
