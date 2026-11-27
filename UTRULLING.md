@@ -40,7 +40,6 @@ Du trenger:
 - brukernavn og passord til Garmin Connect
 - en e-postadresse du kan lese mens du holder på
 - en Claude-konto
-- mappa `hm-veileder` som zip-fil (du får den av Kristian)
 
 ## 1. Bli kjent med Ledetekst
 
@@ -110,20 +109,22 @@ Du skal se et versjonsnummer.
 
 Nå kan du lukke Ledetekst.
 
-## 4. Pakk ut mappa og åpne Ledetekst i den
+## 4. Last ned programmet og åpne Ledetekst i mappa
 
-1. Høyreklikk på zip-fila `hm-veileder` og velg **Pakk ut alle**. Velg for eksempel
-   Dokumenter som sted.
-2. Åpne den utpakkede mappa i Filutforsker. Du er i riktig mappe når du ser en fil som
-   heter `package.json`. Ser du bare én mappe, åpner du den også.
-3. Klikk i **adressefeltet** øverst i Filutforsker (der mappenavnet står), skriv `cmd` og
+1. Åpne denne adressen i nettleseren. Da lastes en zip-fil ned:
+   `https://github.com/krsaga87/hm-veileder/archive/refs/heads/main.zip`
+2. Finn fila `hm-veileder-main.zip` i Nedlastinger. Høyreklikk på den og velg
+   **Pakk ut alle**. Velg for eksempel Dokumenter som sted.
+3. Åpne den utpakkede mappa `hm-veileder-main` i Filutforsker. Du er i riktig mappe når du
+   ser en fil som heter `package.json`. Ser du bare én mappe, åpner du den også.
+4. Klikk i **adressefeltet** øverst i Filutforsker (der mappenavnet står), skriv `cmd` og
    trykk Enter.
 
 Nå åpnes Ledetekst, og den står allerede i riktig mappe. Linja nederst slutter med
-`hm-veileder>` eller lignende.
+`hm-veileder-main>`.
 
 **Alle kommandoene i resten av guiden skal skrives i et Ledetekst-vindu som er åpnet på
-denne måten.** Lukker du vinduet, gjør du punkt 3 på nytt.
+denne måten.** Lukker du vinduet, gjør du punkt 4 på nytt.
 
 Hent så det programmet trenger:
 
@@ -139,8 +140,8 @@ Dette tar et minutt eller to og skriver mye tekst.
 
 - Står det at `pnpm` ikke gjenkjennes, er trinn 3 ikke gjort. Gjør det, og åpne Ledetekst
   på nytt etterpå.
-- Står det at den ikke finner `package.json`, står Ledetekst i feil mappe. Gjør punkt 2 og
-  3 på nytt.
+- Står det at den ikke finner `package.json`, står Ledetekst i feil mappe. Gjør punkt 3 og
+  4 på nytt.
 
 ## 5. Lag fila der nøkkelen skal ligge
 
@@ -312,7 +313,7 @@ Nøkkelen fra Garmin varer i ett år. Garmin sender deg en e-post en uke før de
 
 1. Gå til nøkkelsiden hos Garmin (trinn 6, punkt 1), slett den gamle nøkkelen og lag en ny.
    Kopier den.
-2. Åpne Ledetekst i mappa (trinn 4, punkt 3) og skriv:
+2. Åpne Ledetekst i mappa (trinn 4, punkt 4) og skriv:
 
 ```
 pnpm wrangler secret put GARMIN_API_KEY
