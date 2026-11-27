@@ -42,6 +42,9 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
 - **Følger av punkt 7:** en delt app bruker koblingen til den som ser på den, og folk utenfor
   kontoen får ikke koblingstilgang. Hver bruker må derfor lage appen i sin egen chat, med
   sin egen Garmin-kobling.
-- **Gjenstår:** punkt 3, 5, 6, 8 og 9, og punkt 7 på telefon. Punkt 5–8 må prøves på en
+- **Punkt 8: virker på nett.** Appen ble bedt om søvnscore per natt og blå farger i samme
+  samtale. Den fikk ett Garmin-verktøy til og virket etterpå. Søvnscorene for mandag–fredag
+  (91, 83, 93, 72, 84) var like med Kristians egen Garmin-synk. «Hent på nytt» viste
+  klokkeslettet for hentingen.
+- **Gjenstår:** punkt 3, 5, 6 og 9, og punkt 7 og 8 på telefon. Punkt 5–8 må prøves på en
   Android-telefon. Appbygging på Pro-abonnement er ikke prøvd.
-
