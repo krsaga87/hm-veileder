@@ -35,5 +35,13 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   uka regnes fra mandag: koblingens tall for mandag–fredag ga 263, som er der ukekurven i
   appen endte.
 - **Punkt 4 (delvis):** Claude fant innloggingen selv da koblingen ble lagt til («Detected»).
-- **Gjenstår:** punkt 3 og 5–9. Punkt 5–8 må prøves på en Android-telefon.
+- **Punkt 7: virker på nett.** En app laget i en vanlig chat (Max, Opus 5.5) hentet ukas
+  intensitetsminutter gjennom koblingen mens den kjørte. Første gang spurte Claude «This
+  artifact uses connectors», med Garmin, «Can only read» og ett verktøy. Appen viste 263 for
+  uka, likt med koblingen og Garmin-appen. Appen er privat («Only you»).
+- **Følger av punkt 7:** en delt app bruker koblingen til den som ser på den, og folk utenfor
+  kontoen får ikke koblingstilgang. Hver bruker må derfor lage appen i sin egen chat, med
+  sin egen Garmin-kobling.
+- **Gjenstår:** punkt 3, 5, 6, 8 og 9, og punkt 7 på telefon. Punkt 5–8 må prøves på en
+  Android-telefon. Appbygging på Pro-abonnement er ikke prøvd.
 
