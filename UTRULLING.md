@@ -243,9 +243,9 @@ Programmet har en side der du godkjenner hvem som får lese tallene. Nå sørger
 du kommer inn på den siden. Til dette er gjort, er siden stengt for alle.
 
 1. Gå til `https://dash.cloudflare.com` og trykk **Zero Trust** i menyen til venstre, under
-   «Protect & connect». Da åpner det seg en undermeny. Første gang må du
-   velge et teamnavn (hva som helst) og gratisplanen. Cloudflare kan be om et betalingskort
-   selv om planen koster 0 kr.
+   «Protect & connect». Da åpner det seg en undermeny. Første gang kommer en velkomstside:
+   trykk **Get started**, velg et teamnavn (hva som helst) og planen **Free**. Cloudflare
+   kan be om et betalingskort selv om planen koster 0 kr. Det trekkes ikke noe.
 2. Trykk **Access controls** i undermenyen, så **Applications**, så
    **Add an application**, og velg **Self-hosted**.
 3. Fyll ut:
