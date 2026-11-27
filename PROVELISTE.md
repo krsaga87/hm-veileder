@@ -18,3 +18,19 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
    hentet tallene? Virker den i Android-appen?
 8. Be Claude endre appen («legg til søvn», «bytt farge»). Går det uten at den slutter å virke?
 9. Hvor lenge holder tilkoblingen: prøv igjen etter 1 time, 1 døgn og 1 uke uten bruk.
+
+## Resultater
+
+**27.11.2026, Kristians konto (Garmin Forerunner 970):**
+
+- **Punkt 1 og 2: virker.** Koblingen svarte fra en Claude Code-sesjon i skyen. Søvnscoren
+  ligger i `sleepScores.overall.value`, og dagsoppsummeringene har intensitetsminutter
+  (moderat og hard hver for seg), skritt, hvilepuls, stress og Body Battery.
+- **Tallene stemmer med en uavhengig kilde.** Natt til 27.11 og dagene 25.–27.11 ble
+  sammenlignet med det Kristians egen Garmin-synk hadde lagret: søvnscore, søvnlengde,
+  søvnfaser, leggetid, hvilepuls, Body Battery, stress, SpO2, skritt og aktive kalorier var
+  like på alle verdiene som ble sammenlignet.
+- **Ikke sammenlignet:** intensitetsminuttene mot klokka.
+- **Punkt 4 (delvis):** Claude fant innloggingen selv da koblingen ble lagt til («Detected»).
+- **Gjenstår:** punkt 3 og 5–9. Punkt 5–8 må prøves på en Android-telefon.
+
