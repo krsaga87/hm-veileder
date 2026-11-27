@@ -9,9 +9,10 @@ Sett av omtrent en time. Du kan ta pause mellom trinnene.
 Guiden er skrevet for en PC med Windows. På Mac er trinnene de samme, men programmet du
 skriver kommandoer i heter Terminal.
 
-**Hvor godt guiden er prøvd:** trinnene hos Cloudflare (7–10) følger skjermene slik de så
-ut ved en gjennomgang 27.11.2026. Trinn 6 (Garmin), 11 og 12 (Claude) er skrevet etter
-dokumentasjonen. Menyene kan ha endret seg siden.
+**Hvor godt guiden er prøvd:** trinn 7–9, 10A og 11 følger skjermene slik de så ut ved en
+gjennomgang 27.11.2026, og trinn 12 virket. Trinn 6 (Garmin) er skrevet etter
+dokumentasjonen. Passordvarianten i 10B er dekket av programmets egne tester, men er ikke
+gått gjennom på en ekte utrulling. Menyene kan ha endret seg siden.
 
 ## Hva du setter opp
 
@@ -22,8 +23,8 @@ Det er fire deler, og de henger sammen slik:
 2. **Et lite program hos Cloudflare.** Cloudflare er et selskap som kjører programmer på
    internett. Programmet ditt bruker nøkkelen til å hente tallene når Claude spør.
    Det er gratis.
-3. **En lås på programmet.** Bare du kan gi andre lov til å bruke det, med en engangskode
-   du får på e-post.
+3. **En lås på programmet.** Bare du kan gi andre lov til å bruke det. Du velger mellom to
+   låser i trinn 10: en engangskode du får på e-post, eller et passord.
 4. **En kobling i Claude.** Du forteller Claude hvor programmet ligger, og godkjenner at
    Claude får bruke det.
 
@@ -158,8 +159,8 @@ PowerShell, og da har det også gått bra. Åpne så fila i Notisblokk:
 notepad .env
 ```
 
-Det åpnes et vindu med litt forklarende tekst og to linjer som begynner med
-`GARMIN_API_KEY=` og `ACCESS_AUD=local-dev`. **La vinduet stå åpent** og gå videre.
+Det åpnes et vindu med litt forklarende tekst. Linjene som begynner med `#` er forklaring.
+Den ene linja som teller, er `GARMIN_API_KEY=`. **La vinduet stå åpent** og gå videre.
 
 ## 6. Hent nøkkelen fra Garmin
 
@@ -178,7 +179,7 @@ Det åpnes et vindu med litt forklarende tekst og to linjer som begynner med
 GARMIN_API_KEY=eyJhbGciOi...resten av nøkkelen
 ```
 
-Nøkkelen er rundt 130 tegn lang. Linja under, `ACCESS_AUD=local-dev`, skal stå urørt.
+Nøkkelen er rundt 130 tegn lang. Resten av fila skal stå urørt.
 
 **Virker det ikke?** Fikk du ikke kopiert nøkkelen før du lukket siden, sletter du nøkkelen
 hos Garmin og lager en ny. Bare én nøkkel kan finnes om gangen.
@@ -242,6 +243,19 @@ siden på nytt. Du kan gjøre trinn 10 mens du venter.
 Programmet har en side der du godkjenner hvem som får lese tallene. Nå sørger du for at bare
 du kommer inn på den siden. Til dette er gjort, er siden stengt for alle.
 
+Du velger én av to låser:
+
+| | A: engangskode på e-post | B: passord |
+|---|---|---|
+| Slik virker den | Cloudflare sender en kode til e-posten din hver gang du godkjenner | Du skriver et langt passord hver gang du godkjenner |
+| Oppsett | Flere skjermer hos Cloudflare, og betalingskort selv om det er gratis | To kommandoer |
+| Sikkerhet | Sterkest. Ingenting kan komme på avveie | God, så lenge passordet er det guiden lager, og du oppbevarer det trygt |
+
+A er anbefalt. Velg B hvis du ikke vil legge inn betalingskort. Gjør enten 10A eller 10B,
+ikke begge.
+
+### 10A. Engangskode på e-post (anbefalt)
+
 1. Gå til `https://dash.cloudflare.com` og trykk **Zero Trust** i menyen til venstre, under
    «Protect & connect». Da åpner det seg en undermeny. Første gang kommer en velkomstside:
    trykk **Get started** og velg planen **Zero Trust Free**. Cloudflare ber om et
@@ -285,6 +299,35 @@ det du limer inn.** Det er meningen.
 
 **Sjekk at det gikk bra:** Ledetekst svarer med en linje som inneholder `Success`.
 
+### 10B. Passord (alternativ)
+
+1. Lag et passord. Skriv dette i Ledetekst:
+
+```
+node -e "console.log(require('crypto').randomBytes(18).toString('base64url'))"
+```
+
+   Du får en linje med 24 tilfeldige tegn. Det er passordet.
+2. **Ta vare på passordet.** Skriv det av nøyaktig, eller lagre det i passordhvelvet ditt.
+   Du trenger det hver gang Claude skal kobles til på nytt, og ingen kan hente det fram
+   igjen for deg. Ikke lim det inn i en chat.
+3. Gi passordet til programmet:
+
+```
+pnpm wrangler secret put OWNER_PASSWORD
+```
+
+   Det står `Enter a secret value:`. Lim inn passordet og trykk Enter. Du ser ikke det du
+   limer inn.
+
+**Sjekk at det gikk bra:** Ledetekst svarer med en linje som inneholder `Success`.
+
+Bruk passordet guiden lager, ikke et du finner på selv. Programmet nekter å åpne siden hvis
+passordet er kortere enn 16 tegn, og det stopper den som prøver seg fram: etter fem feil på
+ett minutt må man vente.
+
+Mister du passordet, gjør du punkt 1–3 på nytt. Da gjelder det nye.
+
 ## 11. Koble Claude til programmet
 
 Gjør dette i nettleseren på PC-en, ikke på telefonen.
@@ -300,9 +343,11 @@ Gjør dette i nettleseren på PC-en, ikke på telefonen.
    Neste side viser valgene **Sign in now** og **Use Claude's published identity**, begge
    merket «Detected». Det betyr at Claude fant programmet ditt. La alt stå som det er, bla
    ned og trykk knappen nederst.
-4. Nå åpnes en side fra Cloudflare som ber om e-postadressen din. Skriv den, hent
-   engangskoden fra e-posten og skriv den inn.
-5. Du får et spørsmål om Claude skal få lese Garmin-tallene dine. Trykk **Allow**.
+4. Nå åpnes godkjenningssiden.
+   - Valgte du 10A: først kommer en side fra Cloudflare som ber om e-postadressen din.
+     Skriv den, hent engangskoden fra e-posten og skriv den inn.
+   - Valgte du 10B: siden har et felt som heter «Owner password». Skriv passordet der.
+5. Siden spør om Claude skal få lese Garmin-tallene dine. Trykk **Allow**.
 6. Tilbake i Claude: åpne koblingen Garmin og sett verktøyene til **Always allow**. Da
    slipper du å godkjenne hver gang.
 
@@ -326,7 +371,11 @@ Claude skal hente tallene fra Garmin og svare med dem. Sammenlign med det klokka
 | «Tilbyr ikke sikre tilkoblinger» eller `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` | Adressen er ny og ikke klar ennå | Vent 10–15 minutter og last siden på nytt (trinn 9) |
 | Finner ikke `package.json` | Ledetekst står i feil mappe | Åpne Ledetekst fra riktig mappe (trinn 4) |
 | `pnpm wrangler login` blir stående | Nettleseren fikk ikke svart | Ctrl+C, og bruk den lange kommandoen i trinn 8 |
-| Siden sier «Access required» (403) | Låsen i trinn 10 er ikke ferdig, eller koden er feil | Sjekk domene og path i trinn 10, og legg inn AUD-koden på nytt |
+| Siden sier «Not set up yet» (403) | Trinn 10 er ikke gjort | Gjør 10A eller 10B |
+| Siden sier «Access required» (403) | Låsen i 10A er ikke ferdig, eller koden er feil | Sjekk domene og path i 10A, og legg inn AUD-koden på nytt |
+| Siden sier «Wrong password» | Passordet i 10B er skrevet feil | Gå tilbake og prøv igjen. Har du mistet det, lag et nytt (10B) |
+| Siden sier «Too many attempts» | For mange feil passord på kort tid | Vent et minutt |
+| Siden sier «Password too short» | Passordet er kortere enn 16 tegn | Lag et nytt slik 10B viser |
 | Claude sier «Garmin rejected the Personal API key» | Nøkkelen er utløpt, slettet eller ble avkortet da du limte inn | Lag ny nøkkel, se «Én gang i året» |
 | Claude ber deg koble til på nytt | Koblingen har ikke vært brukt på over en måned | Åpne Connectors i Claude og koble til igjen (trinn 11, punkt 4–5) |
 

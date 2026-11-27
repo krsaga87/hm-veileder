@@ -6,7 +6,7 @@
   "license": "MIT",
   "packageManager": "pnpm@12.16.1",
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "wrangler dev --var ACCESS_AUD:local-dev",
     "deploy": "wrangler deploy",
     "typecheck": "tsc --noEmit && tsc --noEmit -p test",
     "test": "vitest run",

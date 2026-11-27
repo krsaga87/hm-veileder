@@ -4,7 +4,7 @@ import { env } from "cloudflare:workers";
 import { zipSync } from "fflate";
 import { afterEach, beforeAll, describe, expect, it } from "vitest";
 import worker from "../src";
-import { handleAuthorize } from "../src/auth/authorize";
+import { MIN_PASSWORD_LENGTH, handleAuthorize } from "../src/auth/authorize";
 import { mockGarmin } from "./helpers";
 
 const BASE = "https://garmin-mcp.example.com";
@@ -25,25 +25,39 @@ function contextWithAccess(ctx: ExecutionContext): ExecutionContext {
   });
 }
 
-async function call(path: string, init?: RequestInit): Promise<Response> {
+const PASSWORD = "correct-horse-battery-staple";
+/** A deployment protected by OWNER_PASSWORD instead of Cloudflare Access. */
+const passwordEnv = (password = PASSWORD): Env => ({ ...env, ACCESS_AUD: "", OWNER_PASSWORD: password });
+
+/** `custom` runs the request against another configuration, without an Access identity. */
+async function call(path: string, init?: RequestInit, custom?: Env): Promise<Response> {
   const ctx = createExecutionContext();
   // Requests reaching a Worker carry incoming `cf` properties; these tests don't need any.
   const request = new Request(`${BASE}${path}`, init) as Request<unknown, IncomingRequestCfProperties>;
-  const response = await worker.fetch(request, env, contextWithAccess(ctx));
+  const response = await worker.fetch(request, custom ?? env, custom ? ctx : contextWithAccess(ctx));
   await waitOnExecutionContext(ctx);
   return response;
 }
 const b64url = (bytes: ArrayBuffer | Uint8Array) =>
   btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 
-/** Run the whole OAuth flow (DCR, consent, PKCE token exchange) and return an access token. */
-async function authorize(): Promise<string | Response> {
+/**
+ * Run the whole OAuth flow (DCR, consent, PKCE token exchange) and return an
+ * access token. With `login`, the flow runs against a password-protected
+ * deployment and types that password on the consent page.
+ */
+async function authorize(login?: { env: Env; password: string; ip: string }): Promise<string | Response> {
+  const custom = login?.env;
   const client = await (
-    await call("/register", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ client_name: "Test client", redirect_uris: [REDIRECT], token_endpoint_auth_method: "none" }),
-    })
+    await call(
+      "/register",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ client_name: "Test client", redirect_uris: [REDIRECT], token_endpoint_auth_method: "none" }),
+      },
+      custom,
+    )
   ).json<{ client_id: string }>();
 
   const verifier = b64url(crypto.getRandomValues(new Uint8Array(32)));
@@ -59,35 +73,73 @@ async function authorize(): Promise<string | Response> {
     resource: `${BASE}/mcp`,
   });
 
-  const consent = await call(`/authorize?${query}`);
+  const consent = await call(`/authorize?${query}`, undefined, custom);
   const html = await consent.text();
   const handle = html.match(/name="handle" value="([^"]+)"/)?.[1] ?? "";
   const cookie = consent.headers.getSetCookie().map((value) => value.split(";")[0]).join("; ");
 
-  const approval = await call(`/authorize?${query}`, {
-    method: "POST",
-    redirect: "manual",
-    headers: { cookie, "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ handle, decision: "approve" }),
-  });
+  const approval = await call(
+    `/authorize?${query}`,
+    {
+      method: "POST",
+      redirect: "manual",
+      headers: {
+        cookie,
+        "content-type": "application/x-www-form-urlencoded",
+        ...(login ? { "CF-Connecting-IP": login.ip } : {}),
+      },
+      body: new URLSearchParams({ handle, decision: "approve", ...(login ? { password: login.password } : {}) }),
+    },
+    custom,
+  );
   if (approval.status !== 302) return approval;
 
   const code = new URL(approval.headers.get("location")!).searchParams.get("code")!;
   const token = await (
-    await call("/token", {
-      method: "POST",
-      headers: { "content-type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        grant_type: "authorization_code",
-        code,
-        redirect_uri: REDIRECT,
-        client_id: client.client_id,
-        code_verifier: verifier,
-        resource: `${BASE}/mcp`,
-      }),
-    })
+    await call(
+      "/token",
+      {
+        method: "POST",
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          grant_type: "authorization_code",
+          code,
+          redirect_uri: REDIRECT,
+          client_id: client.client_id,
+          code_verifier: verifier,
+          resource: `${BASE}/mcp`,
+        }),
+      },
+      custom,
+    )
   ).json<{ access_token: string }>();
   return token.access_token;
+}
+
+/** The consent page's HTML for a freshly registered client. */
+async function authorizePage(custom?: Env): Promise<string> {
+  const client = await (
+    await call(
+      "/register",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ client_name: "Test client", redirect_uris: [REDIRECT], token_endpoint_auth_method: "none" }),
+      },
+      custom,
+    )
+  ).json<{ client_id: string }>();
+  const query = new URLSearchParams({
+    response_type: "code",
+    client_id: client.client_id,
+    redirect_uri: REDIRECT,
+    code_challenge: b64url(await crypto.subtle.digest("SHA-256", new TextEncoder().encode("verifier"))),
+    code_challenge_method: "S256",
+    state: "state-1",
+    scope: "garmin:read",
+    resource: `${BASE}/mcp`,
+  });
+  return (await call(`/authorize?${query}`, undefined, custom)).text();
 }
 
 let accessToken: string;
@@ -127,6 +179,61 @@ describe("OAuth", () => {
     expect((await handleAuthorize(request, env, {} as ExecutionContext)).status).toBe(403);
     expect((await handleAuthorize(request, env, withAccess("another-app"))).status).toBe(403);
     expect((await handleAuthorize(request, { ...env, ACCESS_AUD: "" }, withAccess(""))).status).toBe(403);
+  });
+
+  it("does not let a password open a page that Access protects", async () => {
+    const request = new Request(`${BASE}/authorize?client_id=x`);
+    const both: Env = { ...env, OWNER_PASSWORD: PASSWORD };
+    expect((await handleAuthorize(request, both, {} as ExecutionContext)).status).toBe(403);
+  });
+});
+
+describe("OAuth with an owner password", () => {
+  it("issues a token to the owner password", async () => {
+    const token = await authorize({ env: passwordEnv(), password: PASSWORD, ip: "203.0.113.1" });
+    expect(typeof token).toBe("string");
+  });
+
+  it("refuses the wrong owner password", async () => {
+    const result = await authorize({ env: passwordEnv(), password: "not-the-password", ip: "203.0.113.2" });
+    expect(result).toBeInstanceOf(Response);
+    expect((result as Response).status).toBe(401);
+  });
+
+  it("refuses an empty password", async () => {
+    const result = await authorize({ env: passwordEnv(), password: "", ip: "203.0.113.3" });
+    expect((result as Response).status).toBe(401);
+  });
+
+  it("asks for the password on the consent page, and only in password mode", async () => {
+    const withPassword = await authorizePage(passwordEnv());
+    expect(withPassword).toContain('name="password"');
+    const withAccess = await authorizePage();
+    expect(withAccess).toContain('name="handle"');
+    expect(withAccess).not.toContain('name="password"');
+  });
+
+  it("stays closed when the password is shorter than the minimum", async () => {
+    const request = new Request(`${BASE}/authorize?client_id=x`);
+    const short = "x".repeat(MIN_PASSWORD_LENGTH - 1);
+    const response = await handleAuthorize(request, passwordEnv(short), {} as ExecutionContext);
+    expect(response.status).toBe(403);
+    // Typing the short password does not help either.
+    const result = await authorize({ env: passwordEnv(short), password: short, ip: "203.0.113.4" });
+    expect((result as Response).status).toBe(403);
+  });
+
+  it("limits password attempts from one address", async () => {
+    const statuses: number[] = [];
+    for (let attempt = 0; attempt < 7; attempt++) {
+      const result = await authorize({ env: passwordEnv(), password: "guess", ip: "203.0.113.5" });
+      statuses.push((result as Response).status);
+    }
+    expect(statuses.slice(0, 5)).toEqual([401, 401, 401, 401, 401]);
+    expect(statuses.slice(5)).toEqual([429, 429]);
+    // Once limited, even the right password has to wait.
+    const right = await authorize({ env: passwordEnv(), password: PASSWORD, ip: "203.0.113.5" });
+    expect((right as Response).status).toBe(429);
   });
 });
 
