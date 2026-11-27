@@ -30,7 +30,10 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   sammenlignet med det Kristians egen Garmin-synk hadde lagret: søvnscore, søvnlengde,
   søvnfaser, leggetid, hvilepuls, Body Battery, stress, SpO2, skritt og aktive kalorier var
   like på alle verdiene som ble sammenlignet.
-- **Ikke sammenlignet:** intensitetsminuttene mot klokka.
+- **Intensitetsminuttene stemmer med Garmin-appen.** 27.11 viste appen 15 moderate og 36
+  høye, totalt 87, og koblingen ga 15 og 36. Høy intensitet teller dobbelt i totalen, og
+  uka regnes fra mandag: koblingens tall for mandag–fredag ga 263, som er der ukekurven i
+  appen endte.
 - **Punkt 4 (delvis):** Claude fant innloggingen selv da koblingen ble lagt til («Detected»).
 - **Gjenstår:** punkt 3 og 5–9. Punkt 5–8 må prøves på en Android-telefon.
 
