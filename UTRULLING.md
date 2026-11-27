@@ -9,9 +9,9 @@ Sett av omtrent en time. Du kan ta pause mellom trinnene.
 Guiden er skrevet for en PC med Windows. På Mac er trinnene de samme, men programmet du
 skriver kommandoer i heter Terminal.
 
-**Ikke prøvd av den som skrev guiden:** trinnene hos Cloudflare (7–10) og Garmin (6) er
-skrevet etter dokumentasjonen, ikke etter en gjennomkjøring. Menyene kan hete noe litt annet
-hos deg. Selve programmet er testet.
+**Hvor godt guiden er prøvd:** trinn 2–5 og 7–10 er gått gjennom på en Windows-PC
+27.11.2026, og beskrivelsen av Cloudflare følger skjermene slik de så ut da. Trinn 6
+(Garmin), 11 og 12 (Claude) er skrevet etter dokumentasjonen. Menyene kan ha endret seg.
 
 ## Hva du setter opp
 
@@ -248,20 +248,31 @@ du kommer inn på den siden. Til dette er gjort, er siden stengt for alle.
    betalingskort selv om planen koster 0. Feltene for mobilnummer og navn nederst på
    betalingssiden er valgfrie og kan stå tomme. Teamnavnet velger Cloudflare selv, og det
    har ingen betydning.
-2. Trykk **Access controls** i undermenyen, så **Applications**, så
-   **Add an application**, og velg **Self-hosted**.
-3. Fyll ut:
-   - **Application name:** `hm-veileder`
-   - **Domain:** adressen fra trinn 9 uten `https://`, altså
-     `hm-veileder.navnet-du-valgte.workers.dev`
+2. Trykk **Access controls** i undermenyen, så **Applications**, og så knappen for å lage
+   en ny applikasjon (**Add an application** eller **Create new application**).
+3. Du får et valg mellom typer. La fanen **Self-hosted and private** stå valgt og trykk
+   **Continue with Self-hosted and private**. Eksemplene midt på siden har ingen betydning.
+4. Under **Destinations → Public hostnames** fyller du ut den ene linja:
+   - **Subdomain:** `hm-veileder`
+   - **Domain:** velg adressen din fra lista. Den slutter på `.workers.dev`, og er den delen
+     av adressen fra trinn 9 som kommer etter `hm-veileder.`
    - **Path:** `authorize`
-   - **Session duration:** 24 hours
-4. Under innloggingsmåter (Login methods) skal bare **One-time PIN** være valgt.
-5. Lag en regel (Policy): **Allow**, velg **Emails**, og skriv e-postadressen din. Skal en
-   til kunne godkjenne, legger du til den adressen også.
-6. Lagre.
-7. Åpne applikasjonen du nettopp laget. På oversikten står en lang kode som heter
-   **Application Audience (AUD) Tag**. Kopier den.
+
+   Ikke bruk «Add Workers», og la bryteren for «browser-based RDP, SSH, or VNC» stå av.
+5. Under **Access policies** trykker du **Create new policy** og fyller ut:
+   - **Policy Name:** `Bare meg`
+   - **Action:** Allow
+   - **Selector:** Emails
+   - **Value:** e-postadressen din, og trykk Enter. Skal en til kunne godkjenne, legger du
+     til den adressen også.
+
+   La resten stå som det er, og trykk **Save policy**.
+6. Tilbake i skjemaet: se at regelen «Bare meg» står under Access policies. Under
+   **Details** setter du navnet til `hm-veileder` og Session Duration til 24 hours. Under
+   **Login methods** skal **One-time PIN** være valgt. Trykk **Save**.
+7. Nå står `hm-veileder` i lista over applikasjoner. Trykk på navnet, velg fanen
+   **Additional settings** øverst, og trykk **AUD tag** i knapperekka. Kopier koden som
+   vises. Den er 64 tegn, bare bokstaver og tall. Policy ID-en med bindestreker er ikke den.
 
 Gå til Ledetekst og skriv:
 
