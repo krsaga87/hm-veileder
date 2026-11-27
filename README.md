@@ -3,8 +3,8 @@
 > **HM veileder – prototype.** Dette repoet er en kopi av
 > [barcia/garmin-mcp](https://github.com/barcia/garmin-mcp) (MIT, © Iván Barcia). Endret her:
 > Worker-navnet er `hm-veileder` og tidssonen er `Europe/Oslo`, så adressene og KV-navnet
-> under heter `hm-veileder…` i stedet for `garmin-mcp…`. Norsk oppskrift for utrulling og
-> prøveliste: [UTRULLING.md](UTRULLING.md).
+> under heter `hm-veileder…` i stedet for `garmin-mcp…`. Norsk trinn-for-trinn-guide:
+> [UTRULLING.md](UTRULLING.md). Prøveliste for teknikken: [PROVELISTE.md](PROVELISTE.md).
 
 A remote MCP server that gives Claude (web, desktop, mobile and Claude Code), or any MCP client, read-only access to your Garmin Connect data. It uses Garmin's [official Personal API](https://developer.garmin.com/gc-developer-program/personal/personal-api): no Garmin password, no scraping. It runs on Cloudflare Workers with the [Agents SDK](https://developers.cloudflare.com/agents/) and is protected by OAuth 2.1.
 
