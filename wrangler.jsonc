@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "garmin-mcp",
+  "name": "hm-veileder",
   "main": "src/index.ts",
   "compatibility_date": "2026-10-20",
   // global_fetch_strictly_public is required by the OAuth provider to fetch
@@ -19,7 +19,7 @@
     // "global" (connect.garmin.com) or "cn" (connect.garmin.cn)
     "GARMIN_REGION": "global",
     // IANA time zone used to resolve "today" when a date is omitted
-    "TIMEZONE": "Europe/Madrid"
+    "TIMEZONE": "Europe/Oslo"
   },
   // ACCESS_AUD: audience tag of the Cloudflare Access application that
   // protects /authorize.

@@ -4,7 +4,7 @@
 interface __BaseEnv_Env {
 	OAUTH_KV: KVNamespace;
 	GARMIN_REGION: "global";
-	TIMEZONE: "Europe/Madrid";
+	TIMEZONE: "Europe/Oslo";
 	GARMIN_API_KEY: string;
 	ACCESS_AUD: string;
 }
