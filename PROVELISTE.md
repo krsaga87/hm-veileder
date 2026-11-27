@@ -46,5 +46,7 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   samtale. Den fikk ett Garmin-verktøy til og virket etterpå. Søvnscorene for mandag–fredag
   (91, 83, 93, 72, 84) var like med Kristians egen Garmin-synk. «Hent på nytt» viste
   klokkeslettet for hentingen.
-- **Gjenstår:** punkt 3, 5, 6 og 9, og punkt 7 og 8 på telefon. Punkt 5–8 må prøves på en
-  Android-telefon. Appbygging på Pro-abonnement er ikke prøvd.
+- **Punkt 7 og 8 på iPhone: virker.** Den oppdaterte appen åpnet seg i Claude-appen på
+  iPhone og hentet de samme tallene gjennom koblingen.
+- **Gjenstår:** punkt 3, 6 og 9, og punkt 5–8 på en Android-telefon. Appbygging på
+  Pro-abonnement er ikke prøvd.
