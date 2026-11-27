@@ -230,7 +230,12 @@ https://hm-veileder.navnet-du-valgte.workers.dev
 **Skriv ned adressen.** Du trenger den i trinn 10 og 11.
 
 Åpne adressen i nettleseren. Du skal se en kort tekst som begynner med `{"name":`. Da ligger
-programmet ute. Første gang kan det ta noen minutter før adressen virker.
+programmet ute.
+
+**Får du en feilside i stedet?** Rett etter første utrulling er adressen ofte ikke klar.
+Nettleseren kan si «Dette nettstedet tilbyr ikke sikre tilkoblinger» eller
+`ERR_SSL_VERSION_OR_CIPHER_MISMATCH`. Det er ikke noe galt. Vent 10–15 minutter og last
+siden på nytt. Du kan gjøre trinn 10 mens du venter.
 
 ## 10. Sett lås på godkjenningssiden
 
@@ -299,6 +304,7 @@ Claude skal hente tallene fra Garmin og svare med dem. Sammenlign med det klokka
 | `node` eller `npm` gjenkjennes ikke | Node.js er ikke installert, eller Ledetekst ble åpnet før installasjonen var ferdig | Gjør trinn 2, og åpne Ledetekst på nytt |
 | `pnpm` gjenkjennes ikke | pnpm er ikke installert | Gjør trinn 3, og åpne Ledetekst på nytt |
 | Rød tekst om «running scripts is disabled» | Du er i PowerShell (linja begynner med `PS`) | Åpne Ledetekst slik trinn 4 viser |
+| «Tilbyr ikke sikre tilkoblinger» eller `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` | Adressen er ny og ikke klar ennå | Vent 10–15 minutter og last siden på nytt (trinn 9) |
 | Finner ikke `package.json` | Ledetekst står i feil mappe | Åpne Ledetekst fra riktig mappe (trinn 4) |
 | `pnpm wrangler login` blir stående | Nettleseren fikk ikke svart | Ctrl+C, og bruk den lange kommandoen i trinn 8 |
 | Siden sier «Access required» (403) | Låsen i trinn 10 er ikke ferdig, eller koden er feil | Sjekk domene og path i trinn 10, og legg inn AUD-koden på nytt |
