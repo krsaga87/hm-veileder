@@ -58,6 +58,7 @@ koblingen virker. Noter hva som virker og ikke. Punkt 5–8 må prøves på en A
   for dagen og 263 for uka. Oppgaven har ikke noe eget varselverktøy; varsel velges under
   Advanced settings → Notifications, med push, e-post eller Slack. Oppgaven fikk tilgang til
   alle kontoens koblinger, ikke bare Garmin.
-- **Ikke avklart for punkt 6:** om push og e-post kom fram, og om man kan svare i kjøringen.
+- **Punkt 6, varsel og svar: virker på iPhone.** Push-varselet kom fram, og et vanlig svar
+  skrevet under kjøringen ble besvart som i en samtale. E-postvarsel er ikke prøvd.
 - **Gjenstår:** punkt 9, og punkt 5–8 på en Android-telefon. Appbygging på Pro-abonnement
   er ikke prøvd.
